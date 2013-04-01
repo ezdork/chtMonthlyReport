@@ -2,5 +2,7 @@ target/
 .project
 .jasper
 .class
-
+.classpath
+.settings/
+config.properties
 
