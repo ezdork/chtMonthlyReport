@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="startDate" class="java.lang.String"/>
+	<parameter name="endDate" class="java.lang.String"/>
+	<parameter name="myName" class="java.lang.String"/>
+	<parameter name="masterName" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\TimLenovo\\workspace_promeritage\\cht\\src\\main\\jasperreports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUB_REPORT" class="net.sf.jasperreports.engine.JasperReport">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="parameter1" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="parameter2" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
+	<parameter name="reportMonth" class="java.lang.String"/>
+	<parameter name="preReportMonth" class="java.lang.String"/>
+	<parameter name="reportYear" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="startDate" class="java.lang.String"/>
+	<field name="week" class="java.lang.String"/>
+	<field name="formatWorkContent" class="java.lang.String"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="workContent" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="標楷體" size="12" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["普瑞德公司委外派遣人員("+$P{startDate}+"~"+$P{endDate}+") 工作進度審查表"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="27" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="標楷體" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="27" y="0" width="219" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="標楷體" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[工作名稱]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="0" width="67" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="標楷體" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[交付日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="0" width="67" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="標楷體" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[應完成日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="501" y="0" width="54" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="標楷體" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[本所
+驗收人員]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="67" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="標楷體" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[實際
+完成日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="0" width="54" height="40"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="標楷體" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[承商
+工作負責人]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="20"/>
+				<dataSourceExpression><![CDATA[$P{parameter1}]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "report2_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="20">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="標楷體" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[新增加趕工項目]]></text>
+			</staticText>
+		</band>
+		<band height="20">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="20"/>
+				<dataSourceExpression><![CDATA[$P{parameter2}]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "report2_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="60">
+			<staticText>
+				<reportElement positionType="Float" x="0" y="40" width="92" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="標楷體" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[填表人：]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="0" width="555" height="40"/>
+				<box leftPadding="3">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="標楷體" pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{reportYear}+"年"+$P{preReportMonth}+"月份工作日誌進度落後部分，已於"+$P{reportMonth}+"月份工作進度審查會議中釐清，\n"+
+"對於交付工作之查核點並無影響，交付之工作均已按時完成且確認品質與內容符合所需。"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="361" y="40" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="標楷體" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[單位主管：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="170" y="40" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="標楷體" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[直接主管：]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
