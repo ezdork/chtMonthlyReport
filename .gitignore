@@ -4,6 +4,7 @@ target/
 .class
 .classpath
 .docx
+.DS_Store
 .settings/
 config.properties
 
