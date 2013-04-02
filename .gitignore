@@ -1,10 +1,10 @@
 target/
+.settings/
 .project
-.jasper
 .class
 .classpath
+.jasper
 .docx
 .DS_Store
-.settings/
 config.properties
 
