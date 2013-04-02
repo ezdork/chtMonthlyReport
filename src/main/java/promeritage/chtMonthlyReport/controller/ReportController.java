@@ -55,8 +55,8 @@ public class ReportController {
         parameters.put("endDate", endDate.replace("-", "/"));
         
         Properties properties = PropertiesUtil.loadProperties(PropertiesUtil.POPERTIES_NAME);
-        parameters.put("myName", PropertiesUtil.getConfig(properties, "name"));
-        parameters.put("masterName", PropertiesUtil.getConfig(properties, "masterName"));
+        parameters.put("myName", UserUtil.getUser().getName() != null ? UserUtil.getUser().getName() : PropertiesUtil.getConfig(properties, "name"));
+        parameters.put("masterName", UserUtil.getUser().getPmName() !=null ? UserUtil.getUser().getPmName() : PropertiesUtil.getConfig(properties, "masterName"));
 //        JasperReport jasperReport = JasperCompileManager.compileReport("src/main/jasperreports/report1.jrxml");
         JasperPrint jasperPrint = JasperFillManager.fillReport("generated-jasper/report1.jasper", parameters, new JRBeanCollectionDataSource(ReportManager.getBeanCollection(workList)));
         File file = new File("report.docx");
@@ -96,6 +96,8 @@ public class ReportController {
         parameters.put("endDate", endDate.replace("-", "/"));
         parameters.put("parameter1", new JRBeanCollectionDataSource(ReportManager.getBeanCollection2(workList)));
         parameters.put("parameter2", new JRBeanCollectionDataSource(ReportManager.getBeanCollection2(workOverTimeList)));
+        
+        parameters.put("SUBREPORT_DIR", System.getProperty("user.dir")+"/generated-jasper/");
 
         parameters.put("reportYear", String.valueOf(startCalendar.get(Calendar.YEAR) - 1911));
         parameters.put("reportMonth", String.valueOf(startCalendar.get(Calendar.MONTH) + 1));

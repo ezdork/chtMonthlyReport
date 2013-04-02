@@ -14,8 +14,7 @@ import org.eclipse.swt.widgets.TreeItem;
  */
 public class LeftCom extends Composite {
 
-    private String[] treeItems = new String[] { "帳號設定",
-        "紀錄工作", "產月報表" };
+    private String[] treeItems = new String[] { "紀錄工作", "產月報表" };
 
     private Tree tree;
 
@@ -58,14 +57,11 @@ public class LeftCom extends Composite {
                 // 根据点击的功能节点展示右面板
                 String selStr = selectedTI.getText();
 
+                // 新建右面板上的内容，其实也是一个面板（RightComA）！
                 if (selStr.equalsIgnoreCase(treeItems[0])) {
-                    // 新建右面板上的内容，其实也是一个面板（RightComA）！
-                    new RightCom001(right, SWT.NONE);
-                    right.layout();
-                } else if (selStr.equalsIgnoreCase(treeItems[1])) {
                     new RightCom002(right, SWT.NONE);
                     right.layout();
-                } else if (selStr.equalsIgnoreCase(treeItems[2])) {
+                } else if (selStr.equalsIgnoreCase(treeItems[1])) {
                     new RightCom003(right, SWT.NONE);
                     right.layout();
                 }

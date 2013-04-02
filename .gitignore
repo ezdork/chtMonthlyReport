@@ -3,6 +3,7 @@ target/
 .jasper
 .class
 .classpath
+.docx
 .settings/
 config.properties
 

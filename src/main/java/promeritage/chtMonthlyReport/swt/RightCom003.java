@@ -9,12 +9,18 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DateTime;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
 
 import promeritage.chtMonthlyReport.controller.ReportController;
 import promeritage.chtMonthlyReport.util.ConsoleUtil;
+import promeritage.chtMonthlyReport.util.UserUtil;
 
 public class RightCom003 extends Composite {
 
+    private Text pmName;
+    private Text name;
+        
     private static Calendar c = Calendar.getInstance();
 
     /**
@@ -52,11 +58,19 @@ public class RightCom003 extends Composite {
         composite_2.setLayout(new FillLayout(SWT.HORIZONTAL));
 
         Button btngooglecalendar = new Button(composite_2, SWT.NONE);
-        btngooglecalendar.setText("列印報表");
+        btngooglecalendar.setText("產出word檔");
         btngooglecalendar.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 try {
+                	if ( name.getText() != null ) {
+                    	UserUtil.getUser().setName(name.getText());	
+                	}
+
+                	if ( pmName.getText() != null ) {
+                    	UserUtil.getUser().setPmName(pmName.getText());
+                	}
+                	
                     String startDateStr = getDateStr(startTime);
                     String endDateStr = getDateStr(endTime);
                     ConsoleUtil.println("產" + startDateStr + "至" + endDateStr + "報表");
@@ -65,6 +79,7 @@ public class RightCom003 extends Composite {
                     ConsoleUtil.println("產報表2");
                     ReportController.genReport2(startDateStr, endDateStr);
                 } catch (Exception e1) {
+                	e1.printStackTrace();
                     ConsoleUtil.println("產報表發生錯誤");
                 }
             }
@@ -94,6 +109,18 @@ public class RightCom003 extends Composite {
             }
         });
 
+
+        Composite composite_3 = new Composite(composite, SWT.NONE);
+        composite_3.setLayout(new FillLayout(SWT.HORIZONTAL));
+
+        Label nameLabel = new Label(composite_3, SWT.NONE);
+        nameLabel.setText("姓名");
+        name = new Text(composite_3, SWT.BORDER);
+
+        Label pmNameLabel = new Label(composite_3, SWT.NONE);
+        pmNameLabel.setText("PM姓名");
+        pmName = new Text(composite_3, SWT.BORDER);
+        
     }
 
     public static String getDateStr(DateTime d) {

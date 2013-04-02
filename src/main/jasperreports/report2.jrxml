@@ -7,9 +7,7 @@
 	<parameter name="endDate" class="java.lang.String"/>
 	<parameter name="myName" class="java.lang.String"/>
 	<parameter name="masterName" class="java.lang.String"/>
-	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["C:\\Users\\TimLenovo\\workspace_promeritage\\cht\\src\\main\\jasperreports\\"]]></defaultValueExpression>
-	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
 	<parameter name="SUB_REPORT" class="net.sf.jasperreports.engine.JasperReport">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>

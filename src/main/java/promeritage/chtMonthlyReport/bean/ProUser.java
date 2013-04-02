@@ -8,8 +8,22 @@ public class ProUser {
     private URL workUrl;
     private URL workOverTimeUrl;
     private URL leaveWorkUrl;
+    private String name;
+    private String pmName;
     
-    public URL getWorkUrl() {
+    public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPmName() {
+		return pmName;
+	}
+	public void setPmName(String pmName) {
+		this.pmName = pmName;
+	}
+	public URL getWorkUrl() {
         return workUrl;
     }
     public void setWorkUrl(URL workUrl) {
