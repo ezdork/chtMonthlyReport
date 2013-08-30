@@ -18,7 +18,7 @@
 		<jasperreport-version>4.0.1</jasperreport-version>
 
 		<!-- <mainClass>promeritage.cht.controller.ReportController</mainClass> -->
-		<mainClass>promeritage.cht.swt.MainApp</mainClass>
+		<mainClass>promeritage.chtMonthlyReport.swt.MainApp</mainClass>
 	</properties>
 
 	<!-- 需要依賴的jar檔 -->
@@ -27,7 +27,7 @@
         <dependency>
           <groupId>swt</groupId>
           <artifactId>swt</artifactId>
-          <version>4.2.1</version>
+          <version>4.2.2</version>
         </dependency>
 		<dependency>
 			<groupId>jasperreport-extension-fonts</groupId>
